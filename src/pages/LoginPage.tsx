@@ -43,5 +43,43 @@ export function LoginPage() {
     }
   });
 
+  return (
+    <div className="mx-auto max-w-md">
+      <div className="rounded-lg bg-white p-6 shadow-md">
+        <h2 className="mb-6 text-2xl font-semibold text-gray-800">Login</h2>
+        {error && <ErrorMessage error={error}/>}
+        <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+          <InputGroup
+            label="Email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            error={errors.email}
+          />
+          <InputGroup
+            name="password"
+            label="Password"
+            value={formData.password}
+            onChange={handleChange}
+            error={errors.password}
+            type="password"
+          />
+          <div className="flex flex-col space-y-3">
+            <Button disabled={isLoading}>
+              {isLoading ? "Logging..." : "Login"}
+            </Button>
+            <div className="text-center text-sm text-gray-600">
+              Don't have an account?{" "}
+              <Link to="/register" className="text-blue-600 hover:text-blue-800">
+                Register
+              </Link>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+
 
 }
