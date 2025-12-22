@@ -1,4 +1,4 @@
-import type { User } from "../types.ts";
+import type { User, AuthUser } from "../types.ts";
 import { API_BASE_URL, apiFetch } from "./api.ts";
 
 export const register = async (
@@ -17,6 +17,25 @@ export const register = async (
     return await response.json();
   } catch (error) {
     console.error("Registration error:", error);
+    return null;
+  }
+};
+
+export const login = async (
+  email: string,
+  password: string
+): Promise<AuthUser | null> => {
+  try {
+    const response = await apiFetch(`${API_BASE_URL}/v1/login`, {
+      method: "POST",
+      body: JSON.stringify({ email, password })
+    });
+    if (!response.ok) {
+      return null;
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Login error:", error);
     return null;
   }
 };
