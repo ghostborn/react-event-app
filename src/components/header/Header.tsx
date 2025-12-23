@@ -21,7 +21,7 @@ export function Header() {
             <Link to="/">All Events</Link>
           </li>
           <li>
-            <Link to="/my-events">New Event</Link>
+            <Link to="/my-events">My Event</Link>
           </li>
           {isAuthenticated ? (
             <li>
