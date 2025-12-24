@@ -2,7 +2,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { login } from "../api/auth.ts";
 import { useAuth } from "../contexts/AuthContext.tsx";
 import { InputGroup } from "../components/InputGroup.tsx";
-import { useForm } from "../hooks/useForm.tsx";
+import { useForm } from "../hooks/useForm.ts";
 import { Button } from "../components/Button.tsx";
 import { ErrorMessage } from "../components/ErrorMessage.tsx";
 

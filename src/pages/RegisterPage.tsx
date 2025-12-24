@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { register } from "../api/auth.ts";
 import { Button } from "../components/Button.tsx";
 import { InputGroup } from "../components/InputGroup.tsx";
-import { useForm } from "../hooks/useForm.tsx";
+import { useForm } from "../hooks/useForm.ts";
 import { ErrorMessage } from "../components/ErrorMessage.tsx";
 
 interface RegisterFormData {

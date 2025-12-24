@@ -1,7 +1,7 @@
 import { useAuth } from "../contexts/AuthContext";
 import { useCallback } from "react";
 import { fetchUserEvents } from "../api/attendees.ts";
-import { useFetch } from "../hooks/useFetch.tsx";
+import { useFetch } from "../hooks/useFetch.ts";
 import type { EventData } from "../types.ts";
 import { EventList } from "../components/events/EventList.tsx";
 
