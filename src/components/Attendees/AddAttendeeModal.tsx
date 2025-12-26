@@ -62,15 +62,15 @@ export function AddAttendeeModal({
 
   return (
     <div
-      className=""
+      className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/60 p-4"
       onClick={onClose}
     >
       <div
-        className=""
+        className="flex h-full max-h-[90vh] w-full max-w-xl flex-col overflow-hidden rounded-lg bg-white p-4 shadow-lg"
         onClick={e => e.stopPropagation()}
       >
-        <div className="">
-          <h2 className="">Add Attendee</h2>
+        <div className="flex items-center justify-between border-b border-gray-200 py-4">
+          <h2 className="text-lg font-semibold text-gray-800">Add Attendee</h2>
           <Button size="small" variant="secondary" onClick={onClose}>
             <XIcon className="h-5 w-5"/>
           </Button>
@@ -78,7 +78,7 @@ export function AddAttendeeModal({
 
         <SearchBar value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
 
-        <div className="">
+        <div className="flex-1 overflow-y-auto p-1">
           {isLoading ? (
             <LoadingMessage message="Loading..."/>
           ) : (
@@ -86,7 +86,7 @@ export function AddAttendeeModal({
           )}
         </div>
 
-        <div className="">
+        <div className="flex justify-end space-x-2 border-t border-gray-200 p-4">
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>

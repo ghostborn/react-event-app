@@ -1,7 +1,7 @@
 import type { User } from "../types.ts";
 import { API_BASE_URL, apiFetch } from "./api.ts";
 
-export const fetchUser = async (): Promise<User[]> => {
+export const fetchUsers = async (): Promise<User[]> => {
   try {
     const response = await apiFetch(`${API_BASE_URL}/v1/users`);
     if (!response.ok) {

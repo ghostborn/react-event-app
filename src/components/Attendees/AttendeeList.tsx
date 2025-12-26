@@ -17,14 +17,16 @@ export function AttendeeList({
   mode = "display",
   isOwner,
   selectedAttendee,
-  onAttendeeSelect = () => {},
-  onRemoveAttendee = () => {},
+  onAttendeeSelect = () => {
+  },
+  onRemoveAttendee = () => {
+  },
 }: AttendeeListProps) {
   if (attendees.length === 0) return null;
 
   return (
     <div>
-      <ul className="">
+      <ul className="h-full divide-y divide-gray-200 pb-6">
         {
           attendees.map(({ id, name, email }) => (
               <li key={id} className={clsx(
@@ -37,14 +39,14 @@ export function AttendeeList({
                   onClick={() => mode === "selection" && onAttendeeSelect({ id, name, email })}
               >
                 <div>
-                  <p>{name}</p>
-                  <p>{email}</p>
+                  <p className="font-medium text-gray-800">{name}</p>
+                  <p className="text-sm text-gray-600">{email}</p>
                 </div>
                 {mode === "display" && isOwner && onRemoveAttendee && (
                   <Button
                     size="small"
-                    className=""
-                    onClick={()=>onRemoveAttendee(id)}
+                    className="mr-4 cursor-pointer rounded-full p-1.5 opacity-0 hover:bg-red-50 group-hover:opacity-100"
+                    onClick={() => onRemoveAttendee(id)}
                     variant="secondary"
                   >
                     <XIcon className="h-5 w-5 text-gray-400 hover:text-red-500"/>
