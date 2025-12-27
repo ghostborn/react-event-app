@@ -1,16 +1,28 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext.tsx";
+import { Menu, X, CalendarIcon, UserIcon } from "lucide-react";
+import { useState } from "react";
+import clsx from "clsx";
 import { Button } from "../Button.tsx";
 
+const navItems = [
+  { to: "/", label: "All Events", icon: CalendarIcon },
+  { to: "/my-events", label: "Attending", icon: UserIcon }
+];
 
 export function Header() {
   const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
   const handleLogout = () => {
     logout();
     navigate("/");
+    closeMobileMenu();
   };
+
 
   return (
     <header className="flex items-center justify-between bg-white p-4 shadow">
