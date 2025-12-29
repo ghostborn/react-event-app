@@ -1,4 +1,4 @@
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/api";
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://192.168.3.132:8080/api";
 
 export const apiFetch = async (
   url: string,
